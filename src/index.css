@@ -1,13 +1,281 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+  font-family: 'Open Sans', sans-serif;
+ 
+  font-size: large;
+
+}
+body{
+  background: #F3F4F8;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+main{
+  min-height: 80vh;
 }
+
+/*nav */
+.nav-link{
+  font-size: 23px;
+  color: #000;
+  margin-left: 20px;
+  font-weight: 50;
+  margin-right: 20px;
+}
+
+.nav-link:hover{
+  color: #49326B;
+  font-weight: 700;
+}
+
+
+/* button */
+
+.btn-primary{
+background-color: #49326B;
+padding: 5px 30px;
+border-radius: 50px;
+font-weight: 600;
+}
+
+.btn-primary:hover{
+  background-color: white;
+  padding: 10px 50px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: #49326B;
+  }
+
+.btn-secondary{
+color: #cb6869;
+border-color: #cb6869;
+padding: 5px 30px;
+border-radius: 50px;
+font-weight: 600;
+}
+
+.btn-secondary:hover{
+  color: #fff;
+  background-color: #49326B;
+  padding: 10px 50px;
+  border-radius: 50px;
+  font-weight: 600;
+  }
+
+.welcome-buttons{
+  background-color: #fff;
+  width: auto;
+  border-radius: 5px;
+  padding: 0;
+}
+
+
+/*card */
+.card{
+  border: none;
+}
+
+.card2{
+  border: 1px solid #dddcdc;
+  border-radius: 20px;
+}
+.card-title{
+  font-weight: 600;
+  font-size: 50px;
+}
+
+.card-title2{
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.card-edit{
+  background-color: #F3F4F8;
+}
+.what-div{
+  background-color: #fff;
+}
+
+.what-heading{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.more-link{
+  color: #cb6869;
+  font-weight: 600;
+}
+
+.more-link:hover{
+  cursor: pointer;
+}
+.img{
+  border-radius: 20px;
+}
+
+.primary-color{
+  background-color: #49326B;
+  color: #fff;
+}
+
+.fas{
+  color:#cb6869;
+}
+
+
+.fa-mine{
+  color: #fff;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+  color: #49326B;
+  font-weight: 700;
+  font-size: 24px;
+
+}
+
+@media screen and (max-width: 768px) {
+  .card-title{
+    font-size: 30px;
+  }
+  .nav-link{
+    font-size: 17px;
+  }
+}
+
+.footer{
+  background-color: #19181b;
+  color: #F3F4F8;
+  padding: 0;
+  font-weight: 50;
+}
+
+
+.copy{
+  background-color: #19181b;
+  color: #F3F4F8;
+  padding: 0;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.footer > ul{
+  list-style-type: none;
+  margin-right: 25px;
+}
+
+.footer-list{
+  font-size: 15px;
+}
+
+h5{
+  font-size: 17px;
+  padding: 5px 30px;
+  font-weight: 700;
+}
+
+.footer-logo{
+  padding-left: 20px;
+  padding-top: 20px;
+
+}
+
+.fa-brands{
+  background-color: #fff;
+  color: #183153;
+
+}
+
+ul > a{
+  text-decoration: none;
+  color: #F3F4F8;
+}
+
+.footer-link:hover{
+  cursor: pointer;
+}
+
+.navbar-toggler-icon{
+  border: none;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+  will-change: opacity, visibility;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+
+.loader-container {
+  position: relative;
+  margin-left: 45%;
+  margin-top: 40vh;
+  padding: 0;
+  width: 70px;
+  line-height: 64px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  transition: all .3s;
+  cursor: pointer;
+}
+.loader-container:hover {
+    filter: contrast(1.1);
+}
+
+.loader-container:active {
+    filter: contrast(0.9);
+}
+
+  .loader-container::before,
+  .loader-container::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 5px solid #49326B;
+    transition: all .5s;
+    animation: clippath 3s infinite linear;
+    border-radius: 200px;
+  }
+
+  .loader-container::after {
+    animation: clippath 3s infinite -1.5s linear;
+  }
+
+
+@keyframes clippath {
+
+  0%,
+  100% {
+    clip-path: inset(0 0 98% 0);
+  }
+
+  25% {
+    clip-path: inset(0 98% 0 0);
+  }
+
+  50% {
+    clip-path: inset(98% 0 0 0);
+  }
+
+  75% {
+    clip-path: inset(0 0 0 98%);
+  }
+}
+
+.bg::before {
+  background: #49326B;
+}
+
+
