@@ -1,13 +1,13 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
-import {Container, Image} from 'react-bootstrap'
+import {Container, Carousel} from 'react-bootstrap'
 import {BrowserRouter as Router,Routes,  Route} from 'react-router-dom'
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Services from './Pages/Services';
 import Contact from './Pages/Contact';
 import {useEffect, useState} from 'react'
-import logo from './Logosmall.png'
+import Loader from './components/Loader';
 function App() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -15,33 +15,50 @@ function App() {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }, []);
-  return (
-    <div>
-    {loading ? (
-      <div className="loader-container">
-        <Image width={40} src={logo} />
-      </div>
-    ) : (
-    <Router>
-    <Container>
- 
-      <Header />
-      <main>
-        <Routes>
-      <Route title={'Home'} path="/" element={<Home />} exact />
-      <Route title={'About Us'} path="/about" element={<About />} />
-      <Route title={'Out Services'} path="/services" element={<Services />} />
-      <Route title={'Contact'} path="/contact" element={<Contact />} />
-      </Routes>
-      </main>
-      <Footer />
 
+
+  }, []);
+
+
+  return (
+    <Container fluid>
+
+      
+      {loading ? (
+        <Loader />
+      ) : (
+       
+        <Router>
+          <Header />
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="/about" element={<About />} />
+              <Route
+               
+                path="/services"
+                element={<Services />}
+              />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+         
+          <Footer />
+          <a
+              href="https://wa.me/2348082328425"
+              target="_blank"
+              rel="noreferrer"
+            >
+          <div className="whatsapp text-center">
+            
+             <i class="fa-brands fa-2x fa-square-whatsapp fa-whatsapp2"></i>
+           
+            <br />
+            <b className='chat'>Live Chat</b>
+          </div>
+          </a>
+        </Router>
+        
+      )}
     </Container>
-    
-    </Router>
-    )}
-    </div>
   );
 }
 
