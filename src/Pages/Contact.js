@@ -4,22 +4,26 @@ import {Card, Row, Col, Container, Form, Button, Alert} from 'react-bootstrap'
 import contact from '../images/contact.jpg'
 import {Helmet} from 'react-helmet'
 import emailjs from '@emailjs/browser';
+import Loader from '../components/Loader'
 function Contact() {
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  const [emailSent, setEmailSent] = useState(false)
+  const [success, setSuccess] = useState("")
   useEffect(() => {
     window.scrollTo(0, 0)
    }, []);
    const form = useRef();
    const sendEmail = (e) => {
+    setLoading(true)
     e.preventDefault();
     emailjs.sendForm('service_r9mfqie', 'contact_form', form.current, 'wkbG4ac-EXzIqHQa_')
       .then((result) => {
-          setEmailSent(true);
+          setLoading(false)
+          setSuccess(result.text);
       }, (error) => {
+          setLoading(false)
           setError(error.text);
       });
-      setEmailSent(true);
   };
   return (
     <div>
@@ -52,124 +56,129 @@ function Contact() {
           </Row>
           {error && 
           <Row>
-            <Col><Col><Alert variant="warning">{error}</Alert></Col></Col>
+            <Col><Col><Alert variant="danger">{error}</Alert></Col></Col>
           </Row>
           }
-          {emailSent ? 
+          {success ? 
           <Row>
-          <Col><Col><Alert variant="warning" className='text-center'>We received your message. We will get back to you shortly.</Alert></Col></Col>
+          <Col><Col><Alert variant="success" className='text-center'>We received your message. We will get back to you shortly.</Alert></Col></Col>
         </Row> :
         <Row>
         <Col>
           <Card className="contact-form">
             <Card.Body>
+              {loading ?  <Loader />
+              :
               <Form ref={form} onSubmit={sendEmail}>
-                <Container>
-                  <Row>
-                  <Col md={6}>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="FirstName"
-                      >
-                        <Form.Label>First Name*</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter First Name"
-                          name="user_firstname"
-                          required
-                        />
-                      </Form.Group>
-                    </Col>                        
-                    <Col md={6}>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="LastName"
-                      >
-                        <Form.Label>Last Name*</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter Last Name"
-                          name="user_lastname"
-                          required
-                        />
-                      </Form.Group>
-                    </Col>                        
-                    <Col md={6}>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="PhoneNumber"
-                      >
-                        <Form.Label>Phone Number*</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter Phone Number"
-                          name="user_phone_number"
-                          required
-                        />
-                      </Form.Group>
-                    </Col>
-                    <Col md={6}>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="Email"
-                      >
-                        <Form.Label>Email address*</Form.Label>
-                        <Form.Control
-                          type="email"
-                          placeholder="Enter email"
-                          name="user_email"
-                          required
-                        />
-                        <Form.Text>
-                          We'll never share your email with anyone else.
-                        </Form.Text>
-                      </Form.Group>
-                    </Col>
-                    <Col md={6}>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="CompanyName"
-                      >
-                        <Form.Label>Company Name*</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter Your Company Name"
-                          name="user_company"
-                        />
-                      </Form.Group>
-                    </Col>
-                    <Col md={6}>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="CompanyAddress"
-                      >
-                        <Form.Label>Company Address*</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter Your Company Address"
-                          name="user_company_address"
-                        />
-                      </Form.Group>
-                    </Col>
-                    <Col>
+              <Container>
+                <Row>
+                <Col md={6}>
                     <Form.Group
-                        className="mb-3"
-                        controlId="Message"
-                      >
-                        <Form.Label>Message</Form.Label>
-                        <Form.Control
-                          as="textarea" 
-                          rows={5}
-                          placeholder="Any other information you'd like to share?."
-                          name="message"
-                          required
-                        />
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <input className='btn btn-primary' type="submit" value="Send Message" />
-                </Container>
-              </Form>
+                      className="mb-3"
+                      controlId="FirstName"
+                    >
+                      <Form.Label>First Name*</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter First Name"
+                        name="user_firstname"
+                        required
+                      />
+                    </Form.Group>
+                  </Col>                        
+                  <Col md={6}>
+                    <Form.Group
+                      className="mb-3"
+                      controlId="LastName"
+                    >
+                      <Form.Label>Last Name*</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Last Name"
+                        name="user_lastname"
+                        required
+                      />
+                    </Form.Group>
+                  </Col>                        
+                  <Col md={6}>
+                    <Form.Group
+                      className="mb-3"
+                      controlId="PhoneNumber"
+                    >
+                      <Form.Label>Phone Number*</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Phone Number"
+                        name="user_phone_number"
+                        required
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col md={6}>
+                    <Form.Group
+                      className="mb-3"
+                      controlId="Email"
+                    >
+                      <Form.Label>Email address*</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        name="user_email"
+                        required
+                      />
+                      <Form.Text>
+                        We'll never share your email with anyone else.
+                      </Form.Text>
+                    </Form.Group>
+                  </Col>
+                  <Col md={6}>
+                    <Form.Group
+                      className="mb-3"
+                      controlId="CompanyName"
+                    >
+                      <Form.Label>Company Name*</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Your Company Name"
+                        name="user_company"
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col md={6}>
+                    <Form.Group
+                      className="mb-3"
+                      controlId="CompanyAddress"
+                    >
+                      <Form.Label>Company Address*</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Your Company Address"
+                        name="user_company_address"
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                  <Form.Group
+                      className="mb-3"
+                      controlId="Message"
+                    >
+                      <Form.Label>Message</Form.Label>
+                      <Form.Control
+                        as="textarea" 
+                        rows={5}
+                        placeholder="Any other information you'd like to share?."
+                        name="message"
+                        required
+                      />
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <input className='btn btn-primary' type="submit" value="Send Message" />
+              </Container>
+            </Form>
+              }
+             
+             
             </Card.Body>
           </Card>
         </Col>

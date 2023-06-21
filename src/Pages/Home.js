@@ -29,7 +29,7 @@ function Home() {
         />
       </Helmet>
       <MainCarousel />
-      <Container className="d-sm-none mt-5 mt-sm-0">
+      <Container className="d-sm-none mt-5 mt-sm-0 pt-4">
         <FadeInSection>
           <Card className="text-center card-edit">
             <Card.Body>
@@ -71,7 +71,7 @@ function Home() {
                 <b className="what-underline">-----------</b>
               </p>
               <Col md={6}>
-                <FadeInSection>
+              
                   <Card className="text-center text-md-start card2 mt-2 mb-3">
                     <Row>
                       <Col md={6}>
@@ -98,10 +98,8 @@ function Home() {
                       </Col>
                     </Row>
                   </Card>
-                </FadeInSection>
               </Col>
               <Col md={6}>
-                <FadeInSection>
                   <Card className="text-center text-md-start card2 mt-2 mb-3">
                     <Row>
                       <Col md={6}>
@@ -128,7 +126,6 @@ function Home() {
                       </Col>
                     </Row>
                   </Card>
-                </FadeInSection>
               </Col>
               <Col md={6}>
                 <FadeInSection>
