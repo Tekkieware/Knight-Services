@@ -75,7 +75,7 @@ Knight Corporate Services provides wide array of financial services that guarant
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="5">
-        <Accordion.Header>Taxation.</Accordion.Header>
+        <Accordion.Header>Tax Advisory.</Accordion.Header>
         <Accordion.Body>
         We collaborate with you to identify and implement a customized tax remittance system that allows a seamless compliance with tax obligations. We keep you informed of any change in tax regulation that concerns your business and proffer a solution that help your business accommodate and adjust to the changes. 
 

@@ -132,6 +132,32 @@ function Home() {
                   <Card className="text-center text-md-start card2 mt-2 mb-3">
                     <Row>
                       <Col md={6}>
+                        <Card.Img className="img" variant="top" src={tax} />
+                      </Col>
+                      <Col>
+                        <Card.Body>
+                          <Card.Title className="card-title2">
+                            Tax Advisory
+                          </Card.Title>
+                          <Card.Text>
+                            We work with you to identify and implement a
+                            customized tax remittance system that allows a
+                            seamless...
+                            <LinkContainer to="/services">
+                              <span className="more-link">more</span>
+                            </LinkContainer>
+                          </Card.Text>
+                        </Card.Body>
+                      </Col>
+                    </Row>
+                  </Card>
+                </FadeInSection>
+              </Col>
+              <Col md={6}>
+                <FadeInSection>
+                  <Card className="text-center text-md-start card2 mt-2 mb-3">
+                    <Row>
+                      <Col md={6}>
                         <Card.Img className="img" variant="top" src={account} />
                       </Col>
                       <Col>
@@ -182,32 +208,7 @@ function Home() {
                   </Card>
                 </FadeInSection>
               </Col>
-              <Col md={6}>
-                <FadeInSection>
-                  <Card className="text-center text-md-start card2 mt-2 mb-3">
-                    <Row>
-                      <Col md={6}>
-                        <Card.Img className="img" variant="top" src={tax} />
-                      </Col>
-                      <Col>
-                        <Card.Body>
-                          <Card.Title className="card-title2">
-                            Taxation
-                          </Card.Title>
-                          <Card.Text>
-                            We work with you to identify and implement a
-                            customized tax remittance system that allows a
-                            seamless...
-                            <LinkContainer to="/services">
-                              <span className="more-link">more</span>
-                            </LinkContainer>
-                          </Card.Text>
-                        </Card.Body>
-                      </Col>
-                    </Row>
-                  </Card>
-                </FadeInSection>
-              </Col>
+           
               <Col md={6}>
                 <FadeInSection>
                   <Card className="text-center text-md-start card2 mt-2 mb-3">
