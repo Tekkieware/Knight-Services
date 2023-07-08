@@ -40,6 +40,9 @@ function Header() {
             </LinkContainer>
             <LinkContainer to="about">
             <Nav.Link>ABOUT US</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="apply">
+            <Nav.Link>JOB APPLICATION</Nav.Link>
             </LinkContainer>  
           </Nav>
         </Navbar.Collapse>

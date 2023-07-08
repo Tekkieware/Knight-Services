@@ -1,29 +1,37 @@
-import React, {useRef, useState} from 'react'
-import {useEffect} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import {Card, Row, Col, Container, Form, Button, Alert} from 'react-bootstrap'
 import contact from '../images/contact.jpg'
 import {Helmet} from 'react-helmet'
 import emailjs from '@emailjs/browser';
 import Loader from '../components/Loader'
 function Contact() {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
-  const [success, setSuccess] = useState("")
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   useEffect(() => {
-    window.scrollTo(0, 0)
-   }, []);
-   const form = useRef();
-   const sendEmail = (e) => {
-    setLoading(true)
+    window.scrollTo(0, 0);
+  }, []);
+  const form = useRef();
+  const sendEmail = (e) => {
+    setLoading(true);
     e.preventDefault();
-    emailjs.sendForm('service_r9mfqie', 'contact_form', form.current, 'wkbG4ac-EXzIqHQa_')
-      .then((result) => {
-          setLoading(false)
+    emailjs
+      .sendForm(
+        "service_r9mfqie",
+        "contact_form",
+        form.current,
+        "wkbG4ac-EXzIqHQa_"
+      )
+      .then(
+        (result) => {
+          setLoading(false);
           setSuccess(result.text);
-      }, (error) => {
-          setLoading(false)
+        },
+        (error) => {
+          setLoading(false);
           setError(error.text);
-      });
+        }
+      );
   };
   return (
     <div>

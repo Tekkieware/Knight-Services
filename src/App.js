@@ -8,6 +8,7 @@ import Services from './Pages/Services';
 import Contact from './Pages/Contact';
 import {useEffect, useState} from 'react'
 import Loader from './components/Loader';
+import Apply from './Pages/Apply';
 function App() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -39,6 +40,7 @@ function App() {
                 element={<Services />}
               />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/apply" element={<Apply />} />
             </Routes>
          
           <Footer />

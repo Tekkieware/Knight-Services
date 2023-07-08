@@ -89,7 +89,7 @@ function MainCarousel() {
           />
 
           <Carousel.Caption>
-            <h3>Taxation.</h3>
+            <h3>Tax Advisory.</h3>
             <p>
               "We'll work together to identify and implement a customized tax
               remittance system that allows a seamless compliance with tax

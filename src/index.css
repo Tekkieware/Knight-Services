@@ -17,7 +17,7 @@ body{
 
 /*nav */
 .nav-link{
-  font-size: 13px;
+  font-size: 12px;
   color: #000;
   margin-left: 10px;
   font-weight: 500;
@@ -32,7 +32,7 @@ body{
 .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
   color: #49326B;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
 
 }
 
@@ -522,10 +522,18 @@ h3{
 .form-control{
   border: none;
   border-radius: 5px;
-  font-size: 15px;
-  font-family:'Courier New', Courier, monospace;
+  box-shadow: 0 0 5px #d0bbee;
+  font-size: 14px;
 }
 
+.apply-form{
+  box-shadow: 0 0 5px #a3a3a3;
+  margin-top: -170px;
+}
+
+.form-control:focus{
+  box-shadow: 0 0 5px #5a3d83;
+}
 
 .form-label{
   font-size: 15px;
@@ -567,6 +575,10 @@ h3{
 
 }
 
+
+.apply-page{
+  min-height: 80vh;
+}
 
 
 @media only screen and (min-width: 575px){
